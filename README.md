@@ -102,6 +102,9 @@ builds use the `cordova` source.
 | `performDefaultBack()` | Runs the back that would happen without this plugin (OutSystems in-app back or system back). |
 | `exitApp()` | `Activity.finish()`, the same as `@capacitor/app` `exitApp`. |
 | `minimizeApp()` | `moveTaskToBack(true)`. |
+| `confirm(message, title, okLabel, cancelLabel)` | `Promise<boolean>`. Uses `navigator.notification.confirm` when cordova-plugin-dialogs is present, otherwise `window.confirm`. |
+| `status()` | `{available, stack, masterEnabled, intercepting, handlerCount, listenerCount, version}` |
+| `isRegistered(id)` | Whether a handler id is still registered. |
 
 The native plugin is also available directly as `Capacitor.Plugins.AndroidBackButton` or
 `cordova.plugins.AndroidBackButton`. It has the same methods except `register` / `unregister`,
@@ -111,8 +114,9 @@ and every method returns a Promise.
 
 | Element | Purpose |
 |---|---|
-| Block `BackButtonHandler` | Inputs: `Enabled` (default True), `ShowExitConfirmation` (default False), `ExitConfirmationText`. Event: `OnBackButton`. It registers on OnReady and OnParametersChanged, and unregisters on OnDestroy. |
+| Block `BackButtonHandler` | Inputs: `Enabled` (default True), `ShowExitConfirmation` (default False), `ExitConfirmationText`, `ExitConfirmationTitle`, `ConfirmButtonLabel`, `CancelButtonLabel`. Event: `OnBackButton`. It registers on OnReady, re-registers only when `Enabled` changes, and unregisters on OnDestroy. Extra back presses are ignored while the exit dialog is open. |
 | `CheckBackButtonPlugin` | Output `IsAvailable`. |
+| `GetBackButtonStatus` | Outputs `IsAvailable`, `IsMasterEnabled`, `IsIntercepting`, `Platform`, `ActiveHandlerCount`, `WrapperVersion`. |
 | `EnableBackHandling` / `DisableBackHandling` | Global master switch. |
 | `ExitApp`, `MinimizeApp` | Close the app or send it to the background. |
 | `TriggerDefaultBack` | Call it in an `OnBackButton` handler to let this one press through. |

@@ -6,7 +6,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<your-account>/os-android-back-button.git"
+    "url": "git+https://github.com/gourav-grv/os-android-back-button.git"
   },
   "keywords": [
     "ecosystem:cordova",

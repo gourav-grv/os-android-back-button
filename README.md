@@ -50,8 +50,9 @@ Back press ─► OnBackPressedDispatcher ─► most recently added ENABLED cal
 
 ## Install in OutSystems
 
-Replace `YOUR-ACCOUNT` with the real repository, or use a published npm version instead (see
-the note below).
+The source is the Git tag `v1.0.0` of https://github.com/gourav-grv/os-android-back-button.
+If you fork the repo, point the URL at your fork. You can also use a published npm version
+instead (see the note below).
 
 ### O11: Mobile Plugin / Library module, Extensibility Configurations
 
@@ -61,8 +62,8 @@ Studio validates it without warnings.
 ```json
 {
   "buildConfigurations": {
-    "cordova":   { "source": { "npm": "https://github.com/YOUR-ACCOUNT/os-android-back-button.git#v1.0.0" } },
-    "capacitor": { "source": { "npm": "https://github.com/YOUR-ACCOUNT/os-android-back-button.git#v1.0.0" } }
+    "cordova":   { "source": { "npm": "https://github.com/gourav-grv/os-android-back-button.git#v1.0.0" } },
+    "capacitor": { "source": { "npm": "https://github.com/gourav-grv/os-android-back-button.git#v1.0.0" } }
   }
 }
 ```
@@ -71,7 +72,7 @@ Studio validates it without warnings.
 Extensibility Configuration"* for it.
 
 ```json
-{ "plugin": { "url": "https://github.com/YOUR-ACCOUNT/os-android-back-button.git#v1.0.0" } }
+{ "plugin": { "url": "https://github.com/gourav-grv/os-android-back-button.git#v1.0.0" } }
 ```
 
 ### ODC: Mobile Library, Extensibility configuration

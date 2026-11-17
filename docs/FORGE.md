@@ -30,7 +30,7 @@ Android 16+, with gesture and 3-button navigation.
 - **Platforms:**
   - One plugin for **Cordova** (O11 MABS, older ODC builds) and **Capacitor** (ODC MABS 12).
   - iOS: safe no-op.
-- **Open source** (MIT): <https://github.com/YOUR-ACCOUNT/os-android-back-button>
+- **Open source** (MIT): <https://github.com/gourav-grv/os-android-back-button>
 
 ## Migrating from "Android back button"
 

@@ -56,8 +56,14 @@ instead (see the note below).
 
 ### O11: Mobile Plugin / Library module, Extensibility Configurations
 
-**Universal schema (recommended).** This is the format the `BackButton` module uses. Service
-Studio validates it without warnings.
+> **O11: use the legacy `plugin` format below.** It's what the `BackButton` module uses.
+> Tested on 2026-11-17 with platform 11.42 and MABS 12.1 (Cordova): a build with only the
+> universal format did **not** install the plugin. Service Studio accepted the JSON without
+> warnings, but the platform didn't pass it to MABS, and the build log listed only the default
+> OutSystems plugins. The legacy format shows the warning *"Deprecated Extensibility
+> Configuration"* in Service Studio; ignore it on O11.
+
+**Universal schema (ODC).** Not processed by O11 Cordova builds (see the note above).
 
 ```json
 {
@@ -68,7 +74,7 @@ Studio validates it without warnings.
 }
 ```
 
-**Legacy schema (older MABS only).** Service Studio shows the warning *"Deprecated
+**Legacy schema (required for O11).** Service Studio shows the warning *"Deprecated
 Extensibility Configuration"* for it.
 
 ```json
@@ -85,7 +91,8 @@ builds use the `cordova` source.
 >   `buildConfigurations.cordova.source.npm` (plus optional `variables`) and
 >   `buildConfigurations.capacitor.source.npm`. Each key is required only if the other is
 >   missing, and the page's example uses both together.
-> - O11 Service Studio accepted the JSON above with no validation messages.
+> - O11 Service Studio accepted the universal JSON with no validation messages, but O11
+>   builds ignored it (see the O11 note above).
 > - The docs describe `npm` as "a valid npm package spec". npm specs include Git URLs with a
 >   `#tag`, but the OutSystems docs only show registry names. If a build can't fetch the Git
 >   URL, publish to npm and use `"npm": "os-android-back-button@1.0.0"`.

@@ -1,0 +1,59 @@
+{
+  "name": "os-android-back-button",
+  "version": "1.0.0",
+  "description": "Android back button handling for OutSystems mobile apps (Cordova + Capacitor). Uses AndroidX OnBackPressedDispatcher, so it works on Android 16 / API 36 with predictive back.",
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<your-account>/os-android-back-button.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "capacitor",
+    "capacitor-plugin",
+    "outsystems",
+    "android",
+    "back-button",
+    "predictive-back",
+    "android-16"
+  ],
+  "files": [
+    "android/src/main/",
+    "android/build.gradle",
+    "android/proguard-rules.pro",
+    "src/",
+    "www/",
+    "outsystems/",
+    "plugin.xml",
+    "README.md",
+    "LICENSE"
+  ],
+  "capacitor": {
+    "android": {
+      "src": "android"
+    }
+  },
+  "cordova": {
+    "id": "os-android-back-button",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "1.0.0": {
+        "cordova-android": ">=10.0.0"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@capacitor/core": {
+      "optional": true
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="os-android-back-button"
+        version="1.0.0">
+    <name>AndroidBackButton</name>
+    <description>Android 16 ready back button handling (AndroidX OnBackPressedDispatcher).</description>
+    <license>MIT</license>
+    <keywords>android,back,backbutton,predictive back,android 16,outsystems</keywords>
+
+    <engines>
+        <engine name="cordova-android" version=">=10.0.0" />
+    </engines>
+
+    <!-- Installed on every platform; on iOS it is a JS-only no-op (isAvailable() === false). -->
+    <js-module src="www/AndroidBackButton.js" name="AndroidBackButton">
+        <clobbers target="cordova.plugins.AndroidBackButton" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AndroidBackButton">
+                <param name="android-package" value="com.osforge.androidbackbutton.cordova.AndroidBackButtonCordova" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/AndroidBackButtonCordova.java"
+                     target-dir="src/com/osforge/androidbackbutton/cordova" />
+        <source-file src="android/src/main/java/com/osforge/androidbackbutton/core/BackHandlerCore.java"
+                     target-dir="src/com/osforge/androidbackbutton/core" />
+
+        <framework src="androidx.activity:activity:1.9.3" />
+    </platform>
+</plugin>
